@@ -18,3 +18,5 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 twbs:bootstrap
 http
+iron:router
+react
