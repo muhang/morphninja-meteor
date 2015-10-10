@@ -45,10 +45,7 @@ function pollHackerNews() {
 }
 
 function fetchStory(id, rank) {
-    console.log(id);
-
     var existing = Story.find({_id: storyID(id)}).fetch();
-
     HTTP.call("GET", "https://hacker-news.firebaseio.com/v0/item/" + id + ".json",
         null,
         function (error, result) {
