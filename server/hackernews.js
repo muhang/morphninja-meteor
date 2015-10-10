@@ -1,4 +1,4 @@
-Story = new Mongo.Collection("story");
+//Story = new Mongo.Collection("story");
 
 //_id = storyID() || commentID()
 //source = "HN"

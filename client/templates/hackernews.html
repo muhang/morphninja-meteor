@@ -1,8 +1,15 @@
 <template name="hackernews">
     <h1>Hacker News</h1>
     <section id="hn-posts">
-        {{> ReactComponent type="HnPostList" props="list"}}
-        <!--<ul class="post-list">-->
-        <!--</ul>-->
+        
+
+
+        <ul class="hn-post-list">
+            {{#each posts}}
+                <li>
+                    <p>{{this.title}}</p>
+                </li>
+            {{/each}}
+        </ul>
     </section>
 </template>
