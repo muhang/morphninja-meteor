@@ -1,5 +1,3 @@
-Reddit = new Mongo.Collection('reddit_hot')
-
 Meteor.publish("reddit", function(){
   return Reddit.find({ source: "Reddit"}, {sort: {created: -1}});
 });

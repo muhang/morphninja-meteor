@@ -1,15 +1,31 @@
 <template name="hackernews">
     <h1>Hacker News</h1>
+    <h2>Weighting</h2>
+    <ul class="weight-options">
+        <li>
+            <p class="weight-name">Points</p>
+            <div id="weight-points-slider"></div>
+        </li>
+        <li>
+            <p class="weight-name">Comments</p>
+            <div id="weight-slider"></div>
+        </li>
+    </ul>
+    <button id="reset-weights">Reset</button>
     <section id="hn-posts">
-        
-
-
-        <ul class="hn-post-list">
+        <ol class="hn-post-list">
             {{#each posts}}
                 <li>
-                    <p>{{this.title}}</p>
+                    <div class="post-header">
+                        <p><a href={{this.url}}>{{this.title}}</a></p>
+                    </div>
+                    <div class="post-details">
+                        <p>HN Rank: {{this.remoteRank}}</p>
+                        <p>{{this.comment_count}} comments</p>
+                        <p>Posted On: {{created}}</p>
+                    </div>
                 </li>
             {{/each}}
-        </ul>
+        </ol>
     </section>
 </template>

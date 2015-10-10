@@ -1,0 +1,19 @@
+<template name="reddit">
+    <h1>Reddit</h1>
+    <section id="reddit-posts">
+        <ol class="reddit-post-list">
+            {{#each posts}}
+                <li>
+                    <div class="post-header">
+                        <p><a href={{this.url}}>{{this.title}}</a></p>
+                    </div>
+                    <div class="post-details">
+                        <p>Upvotes: {{this.remoteRank}}</p>
+                        <p>{{this.comment_count}} comments</p>
+                        <p>Posted On: {{created}}</p>
+                    </div>
+                </li>
+            {{/each}} 
+        </ol>
+    </section>
+</template>
