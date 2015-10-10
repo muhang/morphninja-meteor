@@ -20,3 +20,4 @@ twbs:bootstrap
 http
 iron:router
 react
+kidovate:bootstrap-slider
