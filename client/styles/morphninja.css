@@ -8,8 +8,12 @@ body {
     background: #f6f5f6;
 }
 
-main, main > #reddit-posts, main > #hn-posts {
+main > #reddit-posts, main > #hn-posts {
     padding: 0 40px;
+}
+
+main { 
+    padding: 0 5px;
 }
 
 header {
@@ -29,14 +33,14 @@ header h1 {
     margin: 0 40px 0 0;
     color: #3b3b3b;
     font-weight: 300;
-    font-size: 32px;
+    font-size: 31px;
 }
 
 header h3 {
     margin: 0;
     color: #3b3b3b;
     font-weight: 300;
-    font-size: 22px;
+    font-size: 21px;
 }
 
 main {
@@ -44,30 +48,31 @@ main {
     height: 100%;
     overflow: hidden;
     position: relative;
-    padding-top: 40px;
+    padding-top: 5px;
+    /*padding-top: 40px;*/
 }
 
 main .post-feed {
-    width: calc(33% - 80px);
+    width: calc(33% - 0px);
     float: left;
-    margin: 0 40px;
+    /*margin: 0 40px;*/
 }
 
 .post-feed {
-    border: 2px solid #3b3b3b;
+    border: 1px solid #3b3b3b;
     border-top-style: hidden;
     background: #FFF;
-    height: calc(100vh - 205px);
+    height: calc(100vh - 155px);
     overflow: hidden;
 }
 
 .post-feed h1 {
-    border-top: 2px solid #3b3b3b;
+    border-top: 1px solid #3b3b3b;
     margin: 0;
     line-height: 60px;
-    border-bottom: 2px solid #3b3b3b;
+    border-bottom: 1px solid #3b3b3b;
     padding-left: 40px;
-    font-size: 22px;
+    font-size: 21px;
     font-weight: 400;
     color: #FFF;
     letter-spacing: 0.5px;
