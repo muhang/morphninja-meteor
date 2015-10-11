@@ -168,14 +168,14 @@ p.points {
     font-weight: 600;
 }
 
-.hn-custom p.points {
+.hn-custom p.points, .hn-custom a.comments {
     color: rgb(255, 102, 0);
 }
     
-.reddit-custom p.points {
+.reddit-custom p.points, .reddit-custom a.comments {
     color: #5f99cf;
 }
 
-.ph-custom p.points {
+.ph-custom p.points, .ph-custom a.comments {
     color: #da552f;
 }
