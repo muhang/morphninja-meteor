@@ -22,7 +22,7 @@
                         <div class="post-details">
                             <!--<p>RANK: {{this.rank}}</p>-->
                             <p class="points">{{this.story.remoteRank}}</p>
-                            <p>{{this.story.commentCount}} comments</p>
+                            <p><a href="/hackernews/comments/{{this.story._id}}" class="comments">{{this.story.commentCount}} comments</a></p>
                             <p>Posted On: {{this.story.created}}</p>
                         </div>
                     </li>
@@ -58,7 +58,7 @@
                         <div class="post-details">
                             <!--<p>RANK: {{this.rank}}</p>-->
                             <p class="points">{{this.story.remoteRank}}</p>
-                            <p>{{this.story.commentCount}} comments</p>
+                            <p><a href="/producthunt/comments/{{this.story._id}}" class="comments">{{this.story.commentCount}} comments</a></p>
                             <p>Posted On: {{this.story.created}}</p>
                         </div>
                     </li>
