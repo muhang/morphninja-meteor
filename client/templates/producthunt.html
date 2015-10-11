@@ -1,0 +1,30 @@
+<template name="producthunt">
+    <section class="weight-sliders">
+        <ul class="weight-options">
+            <li>
+                <span>Comments ({{cw}})</span><div id="weighting"></div><span>Upvotes({{pw}})</span>
+            </li>
+            <li>
+                <span>Gravity</span>
+                <div id="gravity"></div>
+            </li>
+        </ul>
+    </section>
+    <section id="ph-posts" class="post-feed single-feed ph-custom">
+        <h1>Product Hunt</h1>
+        <ol class="ph-post-list post-list">
+            {{#each posts}}
+                <li>
+                    <div class="post-header">
+                        <p><a href={{this.story.url}}>{{this.story.title}}</a></p>
+                    </div>
+                    <div class="post-details">
+                        <p class="points">{{this.story.remoteRank}}</p>
+                        <p>{{this.story.commentCount}} comments</p>
+                        <p>Posted On: {{this.story.created}}</p>
+                    </div>
+                </li>
+            {{/each}}
+        </ol>
+    </section>
+</template>

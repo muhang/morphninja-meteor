@@ -74,7 +74,8 @@ main .post-feed {
 }
 .post-feed h1 a {
     color: #FFF;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.85px;
+    font-weight: 300;
 }
 
 .post-feed.hn-custom h1 {
