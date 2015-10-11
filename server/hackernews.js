@@ -70,7 +70,7 @@ function fetchStory(id, rank) {
                 author: result.data.by
             });
 
-            console.log(result.data.kids);
+            //console.log(result.data.kids);
 
             for (var i = 0; i < result.data.kids.length; i++) {
                 fetchComment(result.data.id, result.data.kids[i]);
