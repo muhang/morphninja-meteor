@@ -1,0 +1,18 @@
+<template name="hncomments">
+    <section id="hn-comments" class="post-feed single-feed hn-custom">
+        <h1>Comments</h1>
+        <ol class="hn-post-list post-list">
+            {{#each comments}}
+                <li>
+                    <div class="post-header">
+                        <p>{{this.text}}</p>
+                    </div>
+                    <div class="post-details">
+                        <p>{{this.subComments}} children</p>
+                        <p>Posted On: {{this.created}}</p>
+                    </div>
+                </li>
+            {{/each}}
+        </ol>
+    </section>
+</template>

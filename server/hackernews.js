@@ -17,6 +17,10 @@ Meteor.publish("hackernews", function () {
     return Story.find({ source: "HN" }, {sort: {created : -1}});
 });
 
+Meteor.publish("comments", function () {
+    return Comment.find({ source: "HN" }, { sort: { created: -1 } } );
+});
+
 //poll hacker news
 Meteor.startup(function () {
     // code to run on server at startup
