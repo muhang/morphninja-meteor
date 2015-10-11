@@ -2,6 +2,10 @@ Meteor.publish("reddit", function(){
   return Reddit.find({ source: "Reddit"}, {sort: {created: -1}});
 });
 
+Meteor.publish("redditcomment", function () {
+    return RedditComment.find({ source: "Reddit" }, {sort: {created: -1}});
+});
+
 Meteor.startup(function () {
     // code to run on server at startup
     setInterval(Meteor.bindEnvironment(pollReddit), 60000);
@@ -73,7 +77,7 @@ function pollRedditComment(id){
 }
 
 function insertResult(comment, storyID){
-  Story.upsert({_id: commentID(comment.id)}, {
+  RedditComment.upsert({_id: commentID(comment.id)}, {
     source: "Reddit",
     created: new Date(comment.created * 1000),
     storyID: storyID,

@@ -1,0 +1,19 @@
+<template name="redditcomments">
+    <section id="reddit-comments" class="post-feed single-feed reddit-custom">
+        <h1>Comments</h1>
+        <ol class="reddit-post-list post-list">
+            {{#each comments}}
+                <li>
+                    <div class="post-header">
+                        <p>{{this.text}}</p>
+                    </div>
+                    <div class="post-details">
+                        <p>{{this.subComments}} children</p>
+                        <p>Posted On: {{this.created}}</p>
+                    </div>
+                </li>
+            {{/each}}
+        </ol>
+    </section>
+</template>
+
