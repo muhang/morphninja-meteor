@@ -77,13 +77,14 @@ function pollRedditComment(id){
 }
 
 function insertResult(comment, storyID){
+   console.log(comment)
   RedditComment.upsert({_id: commentID(comment.id)}, {
     source: "Reddit",
     created: new Date(comment.created * 1000),
     storyID: storyID,
     text: comment.body,
-    subComments: comment.replies,
-    parent: comment.subreddit_id,
+    subComments: comment.children,
+    parent: comment.parent_id,
     remoteID: comment.id
   });
 }
