@@ -60,7 +60,8 @@ function fetchStory(id, rank) {
                 url: result.data.url,
                 commentCount: result.data.descendants,
                 remoteRank: rank,
-                remoteID: result.data.id
+                remoteID: result.data.id,
+                author: result.data.by
             })
         }
     );

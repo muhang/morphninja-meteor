@@ -3,7 +3,7 @@
     <h2>Weighting</h2>
     <ul class="weight-options">
         <li>
-            <span>Comments</span><div id="weighting"></div><span>Points</span>
+            <span>Comments ({{cw}})</span><div id="weighting"></div><span>Points({{pw}})</span>
         </li>
         <!--<li>-->
             <!--<p class="weight-name">Points</p>-->
@@ -27,11 +27,11 @@
                 <li>
                     <div class="post-header">
                         <p><a href={{this.story.url}}>{{this.story.title}}</a></p>
+                        <p>{{this.story.author}}</p>
                     </div>
                     <div class="post-details">
-                        <p>RANK: {{this.rank}}</p>
                         <p>HN Rank: {{this.story.remoteRank}}</p>
-                        <p>{{this.story.comment_count}} comments</p>
+                        <p>{{this.story.commentCount}} comments</p>
                         <p>Posted On: {{this.story.created}}</p>
                     </div>
                 </li>

@@ -25,13 +25,17 @@ Template.hackernews.helpers({
         function getRank(story) {
             var now = new Date();
 
-            var c = story.comment_count ? story.comment_count : 0;
+            var c = story.commentCount ? story.commentCount : 0;
             var p = story.remoteRank;
             var t = story.created.getTime();
             var timeDelta = ( now.getTime() - t ) / 1000;  
 
-            var numerator = ( Session.get("pointWeight") * p ) + ( Session.get("commentWeight") * c );
-            var denominator =  ( Math.pow(timeDelta+2, Session.get("gravity")) );
+            var pw = ( Session.get("pointWeight") * p ) / 100;
+            var cw = ( Session.get("commentWeight") * c ) / 100;
+            var g = Session.get("gravity");
+
+            var numerator = ( pw * p ) + ( cw * c );
+            var denominator =  ( Math.pow(timeDelta+2, g) );
 
             return ( numerator / denominator ) * 1000;
 
@@ -40,21 +44,11 @@ Template.hackernews.helpers({
 
         return rankStories(stories);
     },
+    cw: function () { return Session.get("commentWeight"); },
+    pw: function () { return Session.get("pointWeight"); },
 });
 
 Template.hackernews.rendered = function () {
-    //$("#weight-points").slider({
-        //min: 0,
-        //max: 100,
-        //step: 1,
-        //value: Session.get("pointWeight")
-    //});
-    //$("#weight-comments").slider({
-        //min: 0,
-        //max: 100,
-        //step: 1,
-        //value: Session.get("commentWeight")
-    //});
     $("#weighting").slider({
         min: 0,
         max: 100,
@@ -73,19 +67,8 @@ Template.hackernews.events({
     'slideStop #weighting': function (evt) {
         Session.set("pointWeight", evt.target.value);
         Session.set("commentWeight", 100 - evt.target.value);
+    },
+    'slideStop #gravity': function (evt) {
+        Session.set("gravity", evt.target.value);
     }
-    //'slideStop #weight-points': function (evt) {
-        //Session.set("pointWeight", evt.target.value);            
-    //},
-    //'slideStop #weight-comments': function (evt) {
-        //Session.set("commentWeight", evt.target.value);
-    //},
-    //'change input[name=gravity]': function (evt) {
-        //Session.set("gravity", evt.target.value);
-    //}
-   
-    //'click p': function (evt, ctx) {
-        //var p = evt.currentTarget;
-        //p.hide();
-    //} 
 });
