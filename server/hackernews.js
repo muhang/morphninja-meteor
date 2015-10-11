@@ -99,10 +99,7 @@ function fetchComment(storyID, id) {
                 parent: result.data.parent,
                 remoteID: result.data.id
             });
-
             //console.log(result.data);
-
->>>>>>> Comments, reduce logging
         }
     );
 }
