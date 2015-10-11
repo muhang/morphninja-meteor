@@ -50,6 +50,8 @@ main .post-feed {
     border: 2px solid #3b3b3b;
     border-top-style: hidden;
     background: #FFF;
+    height: calc(100vh - 205px);
+    overflow: hidden;
 }
 
 .post-feed h1 {
@@ -59,6 +61,34 @@ main .post-feed {
     border-bottom: 2px solid #3b3b3b;
     padding-left: 40px;
     font-size: 22px;
+    font-weight: 400;
+    color: #FFF;
+    letter-spacing: 0.5px;
+}
+.post-feed h1 a {
+    color: #FFF;
+    letter-spacing: 0.5px;
+}
+
+.post-feed.hn-custom h1 {
+    background: rgb(255, 102, 0);
+}
+
+.post-feed.reddit-custom h1 {
+    background: #5f99cf;
+}
+
+.post-list {
+    padding: 0;
+    margin: 0 40px;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.post-list li {
+    margin: 20px 0; 
+    border-bottom: 1px solid #ccc; 
+    width: 100%;
 }
 
 .weight-sliders {
@@ -68,6 +98,10 @@ main .post-feed {
     height: 60px;
     background: #FFF;
     width: 100%;
+    padding: 16px 40px 0 0;
+    -webkit-box-shadow: 0px -5px 8px 0px rgba(59,59,59,0.2);
+    -moz-box-shadow: 0px -5px 8px 0px rgba(59,59,59,0.2);
+    box-shadow: 0px -5px 8px 0px rgba(59,59,59,0.2);
 }
 
 .weight-options {
@@ -79,9 +113,19 @@ main .post-feed {
     vertical-align: middle;
 }
 
+.weight-options li span {
+    margin: 0 15px;
+    font-weight: 500;
+    font-size: 10px;
+    text-transform: uppercase;
+}
 
 .single-feed {
-    margin-top: 40px;
     width: 65%;
-    margin: 0 auto;
+    margin: 40px auto 0 auto;
+}
+
+.post-header {
+    font-size: 16px;
+    font-weight: 500;
 }
