@@ -9,6 +9,11 @@ Template.home.helpers({
         var ranked = Ranker.rankStories(posts);
         return ranked.slice(0, 25);
     },
+    phPosts: function () {
+        var phPosts = ProductHunt.find({});
+        var ranked = Ranker.rankStories(phPosts);
+        return ranked.slice(0, 25);
+    },
     cw: function () { return Session.get("commentWeight"); },
     pw: function () { return Session.get("pointWeight"); }
 });

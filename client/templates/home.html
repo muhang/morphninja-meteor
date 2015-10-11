@@ -20,8 +20,8 @@
                             <p><a href={{this.story.url}}>{{this.story.title}}</a></p>
                         </div>
                         <div class="post-details">
-                            <p>RANK: {{this.rank}}</p>
-                            <p>Upvotes: {{this.story.remoteRank}}</p>
+                            <!--<p>RANK: {{this.rank}}</p>-->
+                            <p class="points">{{this.story.remoteRank}}</p>
                             <p>{{this.story.commentCount}} comments</p>
                             <p>Posted On: {{this.story.created}}</p>
                         </div>
@@ -38,14 +38,33 @@
                             <p><a href={{this.story.url}}>{{this.story.title}}</a></p>
                         </div>
                         <div class="post-details">
-                            <p>RANK: {{this.rank}}</p>
-                            <p>Upvotes: {{this.story.remoteRank}}</p>
+                            <!--<p>RANK: {{this.rank}}</p>-->
+                            <p class="points">{{this.story.remoteRank}}</p>
                             <p>{{this.story.commentCount}} comments</p>
                             <p>Posted On: {{this.story.created}}</p>
                         </div>
                     </li>
                 {{/each}}
             </ol>
+        </section>
+        <section id="ph-feed" class="post-feed ph-custom ">
+            <h1><a href="/producthunt">Product Hunt</a></h1>
+            <ol class="ph-post-list post-list">
+                {{#each phPosts}}
+                    <li>
+                        <div class="post-header">
+                            <p><a href={{this.story.url}}>{{this.story.title}}</a></p>
+                        </div>
+                        <div class="post-details">
+                            <!--<p>RANK: {{this.rank}}</p>-->
+                            <p class="points">{{this.story.remoteRank}}</p>
+                            <p>{{this.story.commentCount}} comments</p>
+                            <p>Posted On: {{this.story.created}}</p>
+                        </div>
+                    </li>
+                {{/each}}
+            </ol>
+
         </section>
     </main>
 </template>

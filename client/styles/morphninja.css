@@ -16,6 +16,7 @@ header {
     padding: 0 40px;
     border-bottom: 1px solid #CCC;
     height: 85px;
+    background: #FFF;
 }
 
 header * {
@@ -26,10 +27,16 @@ header * {
 
 header h1 {
     margin: 0 40px 0 0;
+    color: #3b3b3b;
+    font-weight: 300;
+    font-size: 32px;
 }
 
 header h3 {
     margin: 0;
+    color: #3b3b3b;
+    font-weight: 300;
+    font-size: 22px;
 }
 
 main {
@@ -41,7 +48,7 @@ main {
 }
 
 main .post-feed {
-    width: calc(50% - 80px);
+    width: calc(33% - 80px);
     float: left;
     margin: 0 40px;
 }
@@ -76,6 +83,10 @@ main .post-feed {
 
 .post-feed.reddit-custom h1 {
     background: #5f99cf;
+}
+
+.post-feed.ph-custom h1 {
+    background: #da552f;
 }
 
 .post-list {
@@ -115,8 +126,9 @@ main .post-feed {
 
 .weight-options li span {
     margin: 0 15px;
-    font-weight: 500;
-    font-size: 10px;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
 }
 
@@ -128,4 +140,41 @@ main .post-feed {
 .post-header {
     font-size: 16px;
     font-weight: 500;
+}
+
+.hn-custom .post-header a {
+    color: rgb(255, 102, 0);
+}
+
+.reddit-custom .post-header a {
+    color: #5f99cf;
+}
+
+.ph-custom .post-header a {
+    color: #da552f;
+}
+
+.post-details * {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.post-details p:last-of-type {
+    margin-bottom: 20px;
+}
+
+p.points {
+    font-weight: 600;
+}
+
+.hn-custom p.points {
+    color: rgb(255, 102, 0);
+}
+    
+.reddit-custom p.points {
+    color: #5f99cf;
+}
+
+.ph-custom p.points {
+    color: #da552f;
 }
