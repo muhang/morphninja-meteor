@@ -21,6 +21,10 @@ function storyID(id) {
   return "reddit_story_" + id;
 }
 
+function commentID(id) {
+  return "reddit_comment_" + id
+}
+
 function pollReddit(){
     HTTP.call('GET', 'http://reddit.com/hot.json',function(error, result){
       if (error) {
@@ -40,7 +44,7 @@ function pollReddit(){
 function insertStory(story) {
   id = story.id;
   //console.log(story);
-  Reddit.upsert({_id: storyID(id)},
+  Reddit.upsert({_id: commentID(id)},
     {
       source: "Reddit",
       created: new Date(story.created * 1000),
@@ -51,4 +55,31 @@ function insertStory(story) {
       remoteID: story.id
     }
   );
+  pollRedditComment(story.id);
 };
+
+function pollRedditComment(id){
+  HTTP.call('GET', 'http://reddit.com/comments/' + id + '.json',function(error, result){
+    if (error) {
+      console.log("Errors", error);
+      return;
+    } else {
+      for (var i=0; i< result.data[1].data.children.length; i++){
+          // console.log(result)
+          insertResult(result.data[1].data.children[i].data, id);
+      }
+    }
+  });
+}
+
+function insertResult(comment, storyID){
+  Story.upsert({_id: commentID(comment.id)}, {
+    source: "Reddit",
+    created: new Date(comment.created * 1000),
+    storyID: storyID,
+    text: comment.body,
+    subComments: comment.replies,
+    parent: comment.subreddit_id,
+    remoteID: comment.id
+  });
+}
