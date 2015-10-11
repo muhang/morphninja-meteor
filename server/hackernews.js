@@ -1,6 +1,6 @@
 //Story = new Mongo.Collection("story");
 
-//_id = storyID() || commentID()
+//_id = storyID()
 //source = "HN"
 //created = Date it was created
 //title = title
@@ -8,6 +8,10 @@
 //comment_count = X
 //remoteRank = X
 //remoteID = X
+
+Comment = new Mongo.Collection("comment");
+//_id = commentID()
+//source = "HN"
 
 Meteor.publish("hackernews", function () {
     return Story.find({ source: "HN" }, {sort: {created : -1}});
@@ -67,6 +71,6 @@ function fetchStory(id, rank) {
     );
 }
 
-function fetchComments(type, id) {
+function fetchComments(ids) {
     //https://hacker-news.firebaseio.com/v0/item/ID.json
 }
