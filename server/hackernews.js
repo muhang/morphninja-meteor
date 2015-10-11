@@ -84,7 +84,6 @@ function fetchStory(id, rank) {
 }
 
 function fetchComment(storyID, id) {
-    //var existing = Story.find({_id: storyID(id)}).fetch();
     HTTP.call("GET", "https://hacker-news.firebaseio.com/v0/item/" + id + ".json",
         null,
         function (error, result) {
