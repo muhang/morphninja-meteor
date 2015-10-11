@@ -30,7 +30,7 @@ function commentID(id) {
 }
 
 function pollReddit(){
-    HTTP.call('GET', 'http://reddit.com/hot.json',function(error, result){
+    HTTP.call('GET', 'http://reddit.com/hot.json?limit=100&count=100',function(error, result){
       if (error) {
         console.log("Errors", error);
         return;
