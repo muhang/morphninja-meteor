@@ -12,6 +12,7 @@
 Comment = new Mongo.Collection("comment");
 //_id = commentID()
 //source = "HN"
+//remoteID = X
 
 Meteor.publish("hackernews", function () {
     return Story.find({ source: "HN" }, {sort: {created : -1}});
@@ -28,8 +29,8 @@ function storyID(id) {
     return "hn_story_" + id;
 }
 
-function commentID(id) {
-    return "hn_comment_" + id;
+function commentID(storyID, id) {
+    return "hn_story_" + storyID + "_comment_" + id;
 }
 
 function pollHackerNews() {
@@ -43,13 +44,14 @@ function pollHackerNews() {
             }
             for (var i = 0; i < result.data.length; i++) {
                 fetchStory(result.data[i], i);
+                return;
             }
         }
     );
 }
 
 function fetchStory(id, rank) {
-    var existing = Story.find({_id: storyID(id)}).fetch();
+    //var existing = Story.find({_id: storyID(id)}).fetch();
     HTTP.call("GET", "https://hacker-news.firebaseio.com/v0/item/" + id + ".json",
         null,
         function (error, result) {
@@ -66,7 +68,41 @@ function fetchStory(id, rank) {
                 remoteRank: rank,
                 remoteID: result.data.id,
                 author: result.data.by
-            })
+            });
+
+            console.log(result.data.kids);
+
+            for (var i = 0; i < result.data.kids.length; i++) {
+                fetchComment(result.data.id, result.data.kids[i]);
+            }
+
+        }
+    );
+}
+
+function fetchComment(storyID, id) {
+    //var existing = Story.find({_id: storyID(id)}).fetch();
+    HTTP.call("GET", "https://hacker-news.firebaseio.com/v0/item/" + id + ".json",
+        null,
+        function (error, result) {
+            if (error) {
+                console.log("ERROR!", error);
+                return;
+            }
+
+            Comment.upsert({_id: commentID(storyID, id)}, {
+                source: "HN",
+                created: new Date(result.data.time * 1000),
+                storyID: storyID,
+                text: result.data.text,
+                subComments: result.data.kids,
+                parent: result.data.parent,
+                remoteID: result.data.id
+            });
+
+            //console.log(result.data);
+
+>>>>>>> Comments, reduce logging
         }
     );
 }

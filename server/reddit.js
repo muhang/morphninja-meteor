@@ -28,7 +28,7 @@ function pollReddit(){
         return;
       } else {
         story = result.data.data.children;
-        console.log(story);
+        //console.log(story);
         for (var i=0; i< story.length; i++){
             insertStory(story[i].data);
         }
@@ -39,7 +39,7 @@ function pollReddit(){
 
 function insertStory(story) {
   id = story.id;
-  console.log(story);
+  //console.log(story);
   Reddit.upsert({_id: storyID(id)},
     {
       source: "Reddit",
