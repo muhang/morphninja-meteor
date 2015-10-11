@@ -5,9 +5,10 @@
 
 body {
     padding-bottom: 60px;
+    background: #f6f5f6;
 }
 
-main, #reddit-posts, #hn-posts {
+main, main > #reddit-posts, main > #hn-posts {
     padding: 0 40px;
 }
 
@@ -36,11 +37,28 @@ main {
     height: 100%;
     overflow: hidden;
     position: relative;
+    padding-top: 40px;
 }
 
 main .post-feed {
-    width: 50%;
+    width: calc(50% - 80px);
     float: left;
+    margin: 0 40px;
+}
+
+.post-feed {
+    border: 2px solid #3b3b3b;
+    border-top-style: hidden;
+    background: #FFF;
+}
+
+.post-feed h1 {
+    border-top: 2px solid #3b3b3b;
+    margin: 0;
+    line-height: 60px;
+    border-bottom: 2px solid #3b3b3b;
+    padding-left: 40px;
+    font-size: 22px;
 }
 
 .weight-sliders {
@@ -59,4 +77,11 @@ main .post-feed {
 .weight-options li {
     display: inline-block;
     vertical-align: middle;
+}
+
+
+.single-feed {
+    margin-top: 40px;
+    width: 65%;
+    margin: 0 auto;
 }
