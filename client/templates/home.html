@@ -1,13 +1,51 @@
 <template name="home">
-    <header>
-        <h1>Morph Ninja</h1>
-        <h3>Customize your front page</h3>
-    </header>
     <main>
-        <ul class="news-feeds">
-            <li><a href="/hackernews">Hacker News</a></li>
-            <li><a href="/reddit">Reddit</a></li>
-            <li><a href="/all">All</a></li>
-        </ul>
+        <section class="weight-sliders">
+            <ul class="weight-options">
+                <li>
+                    <span>Comments ({{cw}})</span><div id="weighting"></div><span>Upvotes({{pw}})</span>
+                </li>
+                <li>
+                    <span>Gravity</span>
+                    <div id="gravity"></div>
+                </li>
+            </ul>
+        </section>
+        <section id="hackernews-feed" class="post-feed">
+            <h1><a href="/hackernews">Hacker News</a></h1>
+            <ol class="hn-post-list post-list">
+                {{#each hnPosts}}
+                    <li>
+                        <div class="post-header">
+                            <p><a href={{this.story.url}}>{{this.story.title}}</a></p>
+                        </div>
+                        <div class="post-details">
+                            <p>RANK: {{this.rank}}</p>
+                            <p>Upvotes: {{this.story.remoteRank}}</p>
+                            <p>{{this.story.commentCount}} comments</p>
+                            <p>Posted On: {{this.story.created}}</p>
+                        </div>
+                    </li>
+                {{/each}} 
+            </ol>
+        </section>
+        <section id="reddit-feed" class="post-feed">
+            <h1><a href="/reddit">Reddit</a></h1>
+            <ol class="reddit-post-list post-list">
+                {{#each redditPosts}}
+                    <li>
+                        <div class="post-header">
+                            <p><a href={{this.story.url}}>{{this.story.title}}</a></p>
+                        </div>
+                        <div class="post-details">
+                            <p>RANK: {{this.rank}}</p>
+                            <p>Upvotes: {{this.story.remoteRank}}</p>
+                            <p>{{this.story.commentCount}} comments</p>
+                            <p>Posted On: {{this.story.created}}</p>
+                        </div>
+                    </li>
+                {{/each}}
+            </ol>
+        </section>
     </main>
 </template>

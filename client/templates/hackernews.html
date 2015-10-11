@@ -1,27 +1,17 @@
 <template name="hackernews">
-    <h1>Hacker News</h1>
-    <h2>Weighting</h2>
-    <ul class="weight-options">
-        <li>
-            <span>Comments ({{cw}})</span><div id="weighting"></div><span>Points({{pw}})</span>
-        </li>
-        <!--<li>-->
-            <!--<p class="weight-name">Points</p>-->
-            <!--[><input id="weight-points" type="text" name="points" value="1" /><]-->
-            <!--<div id="weight-points"></div>-->
-        <!--</li>-->
-        <!--<li>-->
-            <!--<p class="weight-name">Comments</p>-->
-            <!--[><input id="weight-comments" type="text" name="comments" value="0" /><]-->
-            <!--<div id="weight-comments"></div>-->
-        <!--</li>-->
-        <li>
-            <p class="weight-name">Gravity</p>
-            <div id="gravity"></div>
-        </li>
-    </ul>
-    <button id="reset-weights">Reset</button>
+    <section class="weight-sliders">
+        <ul class="weight-options">
+            <li>
+                <span>Comments ({{cw}})</span><div id="weighting"></div><span>Upvotes({{pw}})</span>
+            </li>
+            <li>
+                <span>Gravity</span>
+                <div id="gravity"></div>
+            </li>
+        </ul>
+    </section>
     <section id="hn-posts">
+        <h1>Hacker News</h1>
         <ol class="hn-post-list">
             {{#each posts}}
                 <li>

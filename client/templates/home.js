@@ -1,13 +1,19 @@
-Template.reddit.helpers({
-    posts: function () {
-        var stories = Reddit.find({});
-        return Ranker.rankStories(stories);
+Template.home.helpers({
+    hnPosts: function () {
+        var stories = Story.find({});
+        var rankedStories = Ranker.rankStories(stories);
+        return rankedStories.slice(0, 25);
+    },
+    redditPosts: function () {
+        var posts = Reddit.find({});
+        var ranked = Ranker.rankStories(posts);
+        return ranked.slice(0, 25);
     },
     cw: function () { return Session.get("commentWeight"); },
     pw: function () { return Session.get("pointWeight"); }
 });
 
-Template.reddit.rendered = function () {
+Template.home.rendered = function () {
     $("#weighting").slider({
         min: 0,
         max: 100,
@@ -22,7 +28,7 @@ Template.reddit.rendered = function () {
     });
 }
 
-Template.reddit.events({
+Template.home.events({
     'slideStop #weighting': function (evt) {
         Session.set("pointWeight", evt.target.value);
         Session.set("commentWeight", 100 - evt.target.value);

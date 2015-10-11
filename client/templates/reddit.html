@@ -1,16 +1,28 @@
 <template name="reddit">
-    <h1>Reddit</h1>
+    <section class="weight-sliders">
+        <ul class="weight-options">
+            <li>
+                <span>Comments ({{cw}})</span><div id="weighting"></div><span>Upvotes({{pw}})</span>
+            </li>
+            <li>
+                <span>Gravity</span>
+                <div id="gravity"></div>
+            </li>
+        </ul>
+    </section>
     <section id="reddit-posts">
+        <h1>Reddit</h1>
         <ol class="reddit-post-list">
             {{#each posts}}
                 <li>
                     <div class="post-header">
-                        <p><a href={{this.url}}>{{this.title}}</a></p>
+                        <p><a href={{this.story.url}}>{{this.story.title}}</a></p>
                     </div>
                     <div class="post-details">
-                        <p>Upvotes: {{this.remoteRank}}</p>
-                        <p>{{this.comment_count}} comments</p>
-                        <p>Posted On: {{created}}</p>
+                        <p>RANK: {{this.rank}}</p>
+                        <p>Upvotes: {{this.story.remoteRank}}</p>
+                        <p>{{this.story.commentCount}} comments</p>
+                        <p>Posted On: {{this.story.created}}</p>
                     </div>
                 </li>
             {{/each}} 

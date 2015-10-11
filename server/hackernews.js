@@ -9,7 +9,6 @@
 //remoteRank = X
 //remoteID = X
 
-Comment = new Mongo.Collection("comment");
 //_id = commentID()
 //source = "HN"
 //remoteID = X
