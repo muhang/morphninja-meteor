@@ -3,14 +3,21 @@
     <h2>Weighting</h2>
     <ul class="weight-options">
         <li>
-            <p class="weight-name">Points</p>
-            <!--<input id="weight-points" type="text" name="points" value="1" />-->
-            <div id="weight-points"></div>
+            <span>Comments</span><div id="weighting"></div><span>Points</span>
         </li>
+        <!--<li>-->
+            <!--<p class="weight-name">Points</p>-->
+            <!--[><input id="weight-points" type="text" name="points" value="1" /><]-->
+            <!--<div id="weight-points"></div>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<p class="weight-name">Comments</p>-->
+            <!--[><input id="weight-comments" type="text" name="comments" value="0" /><]-->
+            <!--<div id="weight-comments"></div>-->
+        <!--</li>-->
         <li>
-            <p class="weight-name">Comments</p>
-            <!--<input id="weight-comments" type="text" name="comments" value="0" />-->
-            <div id="weight-comments"></div>
+            <p class="weight-name">Gravity</p>
+            <div id="gravity"></div>
         </li>
     </ul>
     <button id="reset-weights">Reset</button>
@@ -19,12 +26,13 @@
             {{#each posts}}
                 <li>
                     <div class="post-header">
-                        <p><a href={{this.url}}>{{this.title}}</a></p>
+                        <p><a href={{this.story.url}}>{{this.story.title}}</a></p>
                     </div>
                     <div class="post-details">
-                        <p>HN Rank: {{this.remoteRank}}</p>
-                        <p>{{this.comment_count}} comments</p>
-                        <p>Posted On: {{created}}</p>
+                        <p>RANK: {{this.rank}}</p>
+                        <p>HN Rank: {{this.story.remoteRank}}</p>
+                        <p>{{this.story.comment_count}} comments</p>
+                        <p>Posted On: {{this.story.created}}</p>
                     </div>
                 </li>
             {{/each}}
