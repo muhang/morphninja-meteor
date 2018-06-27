@@ -8,7 +8,7 @@ Meteor.publish("redditcomment", function () {
 
 Meteor.startup(function () {
     // code to run on server at startup
-    setInterval(Meteor.bindEnvironment(pollReddit), 60000);
+    setInterval(Meteor.bindEnvironment(pollReddit), 300000);
     pollReddit();
 });
 

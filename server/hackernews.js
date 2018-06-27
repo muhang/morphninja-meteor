@@ -24,7 +24,7 @@ Meteor.publish("comments", function () {
 //poll hacker news
 Meteor.startup(function () {
     // code to run on server at startup
-    setInterval(Meteor.bindEnvironment(pollHackerNews), 60000);
+    setInterval(Meteor.bindEnvironment(pollHackerNews), 300000);
     pollHackerNews();
 });
 

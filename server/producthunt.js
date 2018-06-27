@@ -7,7 +7,7 @@ Meteor.publish("producthuntcomment", function () {
 });
 
 Meteor.startup(function () {
-    setInterval(Meteor.bindEnvironment(pollProductHunt), 60000);
+    setInterval(Meteor.bindEnvironment(pollProductHunt), 300000);
     pollProductHunt();
 });
 
